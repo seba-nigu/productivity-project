@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import Hero from "./pages/Hero";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
@@ -13,7 +13,7 @@ function App() {
           <Route path="/" element={<Hero />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/*" element={<Dashboard />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
