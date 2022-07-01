@@ -1,7 +1,7 @@
 import control from "../../assets/control.png";
 import { FaChartLine, FaList, FaCalendar, FaWrench } from "react-icons/fa";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
   const [open, setOpen] = useState(true);

@@ -4,10 +4,13 @@ module.exports = {
   theme: {
     extend: {},
     minHeight: {
-      3: "300px",
+      3: "100px",
     },
     minHeight: {
       test: "100vh",
+    },
+    fontFamily: {
+      roboto: ["Roboto, sans-serif"],
     },
   },
   plugins: [],
