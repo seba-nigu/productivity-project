@@ -3,6 +3,12 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {},
+    minHeight: {
+      3: "300px",
+    },
+    minHeight: {
+      test: "100vh",
+    },
   },
   plugins: [],
 };

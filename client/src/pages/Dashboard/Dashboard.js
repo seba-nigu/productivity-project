@@ -29,7 +29,8 @@ function Dashboard() {
   });
 
   return (
-    <div className="flex h-screen font-mono">
+    // for some reason tailwind min-h-screen class doesnt work, had to override it
+    <div className="flex min-h-test font-mono">
       <Sidebar />
       <Routes>
         <Route path="/" element={<Homepage />} />
