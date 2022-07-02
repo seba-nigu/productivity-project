@@ -1,8 +1,8 @@
 const config = {
-  user: "test",
-  password: "test",
-  server: "DESKTOP-VVER5PN",
-  database: "basicLoginSystem",
+  user: "seba",
+  password: "seba",
+  server: `DESKTOP-BETNVDJ`,
+  database: "loginSystem",
   options: {
     trustServerCertificate: true,
     // trustedConnection: false,
