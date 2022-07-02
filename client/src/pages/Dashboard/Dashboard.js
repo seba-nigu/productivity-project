@@ -9,26 +9,7 @@ import Settings from "./Settings";
 import Sidebar from "./Sidebar";
 
 function Dashboard() {
-  let navigate = useNavigate();
-  let config;
-  if (localStorage.getItem("user")) {
-    config = {
-      headers: {
-        authorization:
-          "Bearer " + JSON.parse(localStorage.getItem("user")).token,
-      },
-    };
-  }
-
-  useEffect(() => {
-    if (localStorage.getItem("user"))
-      axios.get("http://localhost:5000/dashboard", config);
-    else {
-      navigate("/");
-    }
-  });
-
-  const testa = [
+  const dummyData = [
     {
       title: "TODO",
       items: [
@@ -65,13 +46,32 @@ function Dashboard() {
     },
   ];
 
+  let navigate = useNavigate();
+  let config;
+  if (localStorage.getItem("user")) {
+    config = {
+      headers: {
+        authorization:
+          "Bearer " + JSON.parse(localStorage.getItem("user")).token,
+      },
+    };
+  }
+
+  useEffect(() => {
+    if (localStorage.getItem("user"))
+      axios.get("http://localhost:5000/dashboard", config);
+    else {
+      navigate("/");
+    }
+  });
+
   return (
     // for some reason tailwind min-h-screen class doesnt work, had to override it
     <div className="flex min-h-test font-mono">
       <Sidebar />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/jira" data={testa} element={<Jira />} />
+        <Route path="/jira" element={<Jira data={dummyData} />} />
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/settings" element={<Settings />} />
 
