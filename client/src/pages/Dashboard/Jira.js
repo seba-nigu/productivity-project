@@ -14,6 +14,7 @@ function Jira(props) {
             <div className="dnd-group bg-gray-100 w-72 p-4 min-h-[15rem] rounded">
               <div className="dnd-title text-gray-400 font-semibold">
                 {grp.title} <span>{grp.items.length}</span>
+                test
               </div>
               {grp.items.map((item) => (
                 <div draggable className="dnd-item bg-white p-5 m-2">
