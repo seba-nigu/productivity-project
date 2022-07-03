@@ -7,9 +7,11 @@ and middleware. The styling was made with tailwindcss.
 
 
 Login page
+
 ![image](https://user-images.githubusercontent.com/102463065/177058125-a0ab6e49-ad93-4ee8-a8a5-34b74d362aa7.png)
 
 Register page
+
 ![image](https://user-images.githubusercontent.com/102463065/177058136-dcb87f0b-9590-4d3f-bc8b-b79e6ec212f4.png)
 
 WORK IN PROGRESS:
