@@ -20,7 +20,7 @@ Homepage
 ![image](https://user-images.githubusercontent.com/102463065/177058148-695071b5-0623-44db-9074-1a0fdff15947.png)
 
 Jira
-![image](https://user-images.githubusercontent.com/102463065/177058167-ecf52ed9-1fc5-4812-a993-90149ed5395c.png)
+![image](https://user-images.githubusercontent.com/102463065/177058277-b2234ed2-a48c-4634-acc3-dda534f1c992.png)
 
 
 
