@@ -4,6 +4,8 @@ React web application that includes a login and registration system
 (data stored in MSSQL database), react routing, page nesting, page 
 restriction based on JWT token, Nodejs backend that includes routes
 and middleware. The styling was made with tailwindcss.
+
+
 Login page
 ![image](https://user-images.githubusercontent.com/102463065/177058125-a0ab6e49-ad93-4ee8-a8a5-34b74d362aa7.png)
 
