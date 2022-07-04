@@ -9,43 +9,6 @@ import Settings from "./Settings";
 import Sidebar from "./Sidebar";
 
 function Dashboard() {
-  const dummyData = [
-    {
-      title: "TODO",
-      items: [
-        {
-          taskId: 3,
-          text: "This is bullshit",
-        },
-        {
-          taskId: 4,
-          text: "This is pretty nice",
-        },
-        {
-          taskId: 5,
-          text: "Chunky boy",
-        },
-      ],
-    },
-    {
-      title: "In progress",
-      items: [
-        {
-          taskId: 6,
-          text: "This is bullshit",
-        },
-        {
-          taskId: 7,
-          text: "This is pretty nice",
-        },
-      ],
-    },
-    {
-      title: "Done",
-      items: [],
-    },
-  ];
-
   let navigate = useNavigate();
   let config;
   if (localStorage.getItem("user")) {
@@ -71,7 +34,7 @@ function Dashboard() {
       <Sidebar />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/jira" element={<Jira data={dummyData} />} />
+        <Route path="/jira" element={<Jira />} />
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/settings" element={<Settings />} />
 

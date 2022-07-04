@@ -1,18 +1,29 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-function Jira(props) {
-  let navigate = useNavigate();
-
-  const [list, setList] = useState(props.data);
+function Jira() {
+  const [list, setList] = useState(null);
   const [onDragItem, setOnDragItem] = useState(false);
   const [posOfItem, setPosOfItem] = useState();
 
-  // const [currentItem, setCurrentItem] = useState({});
+  useEffect(() => {
+    axios
+      .post("http://localhost:5000/dashboard/jira", {
+        email: "admin@admin.admin",
+      })
+      .then((response) => {
+        console.log("Daaa");
+        setList(response.data);
+      })
+      .catch((error) => {
+        console.log("Please check your internet connection.");
+      });
+  }, [setList]);
 
   const handleDragEnd = () => {
     setOnDragItem(false);
   };
+
   const handleDragStart = (e, id) => {
     setOnDragItem(true);
     e.dataTransfer.setData("id", id);
@@ -35,8 +46,6 @@ function Jira(props) {
           aux[pos].items.push({ taskId: id, text: item.text });
           aux[p].items.splice(po, 1);
           setList(aux);
-          setPosOfItem();
-          navigate("/dashboard/jira");
           return;
         }
       });
@@ -49,7 +58,7 @@ function Jira(props) {
         <div className="jira-title text-5xl font-bold">Jira clone</div>
       </div>
       <div className="p-8 flex justify-between flex-1">
-        {list.map((grp, grpI) => (
+        {list?.map((grp, grpI) => (
           <div key={grpI}>
             <div
               onDragOver={(e) => handleDragOver(e)}
