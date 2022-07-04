@@ -19,6 +19,10 @@ function Jira() {
       });
   }, [setList]);
 
+  const handleDragEnd = () => {
+    setOnDragItem(false);
+  };
+
   const handleDragStart = (e, id) => {
     setOnDragItem(true);
     e.dataTransfer.setData("id", id);
@@ -76,6 +80,7 @@ function Jira() {
                 <div
                   key={item.taskId}
                   draggable
+                  onDragEnd={handleDragEnd}
                   onDragStart={(e) => handleDragStart(e, item.taskId)}
                   className={
                     !onDragItem
