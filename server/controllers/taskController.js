@@ -7,26 +7,19 @@ const getTasks = async (req, res) => {
     { title: "In progress", items: [] },
     { title: "Done", items: [] },
   ];
+
+  let categories = {
+    TODO: 0,
+    "In progress": 1,
+    Done: 2,
+  };
+
   data.recordset.forEach((obj) => {
     let cat = obj.categoryName;
-    if (cat === "TODO") {
-      taskArray[0].items.push({
-        taskId: obj.taskId,
-        text: obj.innerText,
-      });
-    }
-    if (cat === "In progress") {
-      taskArray[1].items.push({
-        taskId: obj.taskId,
-        text: obj.innerText,
-      });
-    }
-    if (cat === "Done") {
-      taskArray[2].items.push({
-        taskId: obj.taskId,
-        text: obj.innerText,
-      });
-    }
+    taskArray[categories[cat]].items.push({
+      taskId: obj.taskId,
+      text: obj.innerText,
+    });
   });
   res.status(200).json(taskArray);
   return taskArray;
