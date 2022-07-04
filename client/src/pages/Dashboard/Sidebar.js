@@ -19,46 +19,62 @@ function Sidebar() {
       <ul>
         <li
           onClick={() => navigate("/dashboard")}
-          className={`${
-            (!open && "justify-center mx-0") || "justify-between mx-14"
-          } flex items-center text-gray-300 mt-40 text-2xl cursor-pointer hover:bg-blue-800 rounded px-2 py-4`}
+          className="hover:bg-blue-800"
         >
-          <FaChartLine />
-          <div className={`origin-left font-bold ${!open && "hidden"}`}>
-            Dashboard
+          <div
+            className={`${
+              (!open && "justify-center mx-0") || "justify-between mx-14"
+            } flex items-center text-gray-300 mt-40 text-2xl cursor-pointer rounded px-2 py-4`}
+          >
+            <FaChartLine />
+            <div className={`origin-left font-bold ${!open && "hidden"}`}>
+              Dashboard
+            </div>
           </div>
         </li>
         <li
           onClick={() => navigate("/dashboard/jira")}
-          className={`${
-            (!open && "justify-center mx-0") || "justify-between mx-14"
-          } flex items-center text-gray-300 mt-10 text-2xl cursor-pointer hover:bg-blue-800 rounded px-2 py-4`}
+          className="hover:bg-blue-800"
         >
-          <FaList />
-          <div className={`origin-left font-bold ${!open && "hidden"}`}>
-            Fake Jira
+          <div
+            className={`${
+              (!open && "justify-center mx-0") || "justify-between mx-14"
+            } flex items-center text-gray-300 mt-10 text-2xl cursor-pointer rounded px-2 py-4`}
+          >
+            <FaList />
+            <div className={`origin-left font-bold ${!open && "hidden"}`}>
+              Fake Jira
+            </div>
           </div>
         </li>
         <li
           onClick={() => navigate("/dashboard/calendar")}
-          className={`${
-            (!open && "justify-center mx-0") || "justify-between mx-14"
-          } flex items-center text-gray-300 mt-10 text-2xl cursor-pointer hover:bg-blue-800 rounded px-2 py-4`}
+          className="hover:bg-blue-800"
         >
-          <FaCalendar />
-          <div className={`origin-left font-bold ${!open && "hidden"}`}>
-            Calendar
+          <div
+            className={`${
+              (!open && "justify-center mx-0") || "justify-between mx-14"
+            } flex items-center text-gray-300 mt-10 text-2xl cursor-pointer rounded px-2 py-4`}
+          >
+            <FaCalendar />
+            <div className={`origin-left font-bold ${!open && "hidden"}`}>
+              Calendar
+            </div>
           </div>
         </li>
         <li
           onClick={() => navigate("/dashboard/settings")}
-          className={`${
-            (!open && "justify-center mx-0") || "justify-between mx-14"
-          } flex items-center text-gray-300 mt-10 text-2xl cursor-pointer hover:bg-blue-800 rounded px-2 py-4`}
+          className="hover:bg-blue-800"
         >
-          <FaWrench />
-          <div className={`origin-left font-bold ${!open && "hidden"}`}>
-            Settings
+          <div
+            className={`${
+              (!open && "justify-center mx-0") || "justify-between mx-14"
+            } flex items-center text-gray-300 mt-10 text-2xl cursor-pointer rounded px-2 py-4`}
+          >
+            <FaWrench />
+            <div className={`origin-left font-bold ${!open && "hidden"}`}>
+              Settings
+            </div>
           </div>
         </li>
       </ul>
