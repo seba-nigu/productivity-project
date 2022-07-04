@@ -12,17 +12,12 @@ function Jira() {
         email: "admin@admin.admin",
       })
       .then((response) => {
-        console.log("Daaa");
         setList(response.data);
       })
       .catch((error) => {
         console.log("Please check your internet connection.");
       });
   }, [setList]);
-
-  const handleDragEnd = () => {
-    setOnDragItem(false);
-  };
 
   const handleDragStart = (e, id) => {
     setOnDragItem(true);
@@ -36,16 +31,25 @@ function Jira() {
 
   const handleDrop = (e, title, pos) => {
     setOnDragItem(false);
+
     let id = parseInt(e.dataTransfer.getData("id"));
-    let hehe = 1;
+    let stopper = 1;
     list.forEach((row, p) => {
       row.items.forEach((item, po) => {
-        if (hehe === 1 && parseInt(item.taskId) === id) {
-          hehe = 0;
+        if (stopper === 1 && parseInt(item.taskId) === id) {
+          stopper = 0;
           let aux = list;
           aux[pos].items.push({ taskId: id, text: item.text });
           aux[p].items.splice(po, 1);
-          setList(aux);
+
+          axios
+            .put("http://localhost:5000/dashboard/jira", {
+              id: id,
+              category: aux[pos].title,
+            })
+            .catch((error) => {
+              console.log("Please check your internet connection.");
+            });
           return;
         }
       });
@@ -72,7 +76,6 @@ function Jira() {
                 <div
                   key={item.taskId}
                   draggable
-                  onDragEnd={handleDragEnd}
                   onDragStart={(e) => handleDragStart(e, item.taskId)}
                   className={
                     !onDragItem

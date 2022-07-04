@@ -51,9 +51,24 @@ const getTasks = async (email) => {
   }
 };
 
+const modifyTasks = async (id, category) => {
+  try {
+    let pool = await sql.connect(config);
+    let data = await pool
+      .request()
+      .query(
+        `UPDATE tasks SET categoryName ='${category}' WHERE taskId ='${id}'`
+      );
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   createRegister,
   getLogin,
   getId,
   getTasks,
+  modifyTasks,
 };

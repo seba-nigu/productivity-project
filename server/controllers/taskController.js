@@ -21,7 +21,7 @@ const getTasks = async (req, res) => {
         text: obj.innerText,
       });
     }
-    if (cat === "Done ") {
+    if (cat === "Done") {
       taskArray[2].items.push({
         taskId: obj.taskId,
         text: obj.innerText,
@@ -29,10 +29,16 @@ const getTasks = async (req, res) => {
     }
   });
   res.status(200).json(taskArray);
-  console.log(taskArray);
   return taskArray;
+};
+
+const editTasks = async (req, res) => {
+  let data = await dbOperation.modifyTasks(req.body.id, req.body.category);
+  res.status(200);
+  return data;
 };
 
 module.exports = {
   getTasks,
+  editTasks,
 };
