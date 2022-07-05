@@ -31,7 +31,19 @@ const editTasks = async (req, res) => {
   return data;
 };
 
+const postTask = async (req, res) => {
+  let data = await dbOperation.postTask(
+    req.body.email,
+    req.body.category,
+    req.body.text,
+    req.body.date
+  );
+  res.status(200);
+  return data;
+};
+
 module.exports = {
   getTasks,
   editTasks,
+  postTask,
 };

@@ -9,16 +9,17 @@ function Jira() {
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
-    axios
-      .post("http://localhost:5000/dashboard/jira", {
-        email: "admin@admin.admin",
-      })
-      .then((response) => {
-        setList(response.data);
-      })
-      .catch((error) => {
-        console.log("Please check your internet connection.");
-      });
+    if (localStorage.getItem("user"))
+      axios
+        .post("http://localhost:5000/dashboard/jira", {
+          email: JSON.parse(localStorage.getItem("user")).email,
+        })
+        .then((response) => {
+          setList(response.data);
+        })
+        .catch((error) => {
+          console.log("Please check your internet connection.");
+        });
   }, [setList]);
 
   const handleDragEnd = () => {

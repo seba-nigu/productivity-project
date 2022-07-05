@@ -65,10 +65,24 @@ const modifyTasks = async (id, category) => {
   }
 };
 
+const postTask = async (email, category, innerText, date) => {
+  try {
+    let pool = await sql.connect(config);
+    let data = await pool
+      .request()
+      .query(
+        `INSERT INTO tasks VALUES('${category}', '${innerText}', '${date}', '${email}')`
+      );
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
 module.exports = {
   createRegister,
   getLogin,
   getId,
   getTasks,
   modifyTasks,
+  postTask,
 };
