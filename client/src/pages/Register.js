@@ -23,7 +23,6 @@ function Register() {
   const postRegister = async (e) => {
     e.preventDefault();
     try {
-      console.log(register.password);
       if (register.password === "" || register.confirmPassword === "") {
         setShowResults(true);
         setWarningMessage("Please provide a password and a confim password!");
@@ -41,7 +40,6 @@ function Register() {
               setWarningMessage("Email already in use!");
             });
           navigate("/login");
-          console.log(res.message);
         } else {
           setShowResults(true);
           setWarningMessage("Passwords do not match!");
