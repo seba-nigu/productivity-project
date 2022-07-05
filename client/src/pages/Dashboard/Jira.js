@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Popup from "../../components/Popup";
 
 function Jira() {
   const [list, setList] = useState(null);
   const [onDragItem, setOnDragItem] = useState(false);
   const [posOfItem, setPosOfItem] = useState();
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     axios
@@ -60,10 +62,21 @@ function Jira() {
     });
   };
 
+  const changeTrigger = () => {
+    setShowPopup(!showPopup);
+  };
+
   return (
     <div className="flex-1 flex flex-col">
-      <div className="upper-header p-8">
+      <div className="upper-header p-8 flex items-center">
         <div className="jira-title text-5xl font-bold">Jira clone</div>
+        <div
+          className="rounded bg-blue-700 hover:bg-blue-900 cursor-pointer mx-10 w-32 text-white px-4 py-2 text-center"
+          onClick={changeTrigger}
+        >
+          Create task
+        </div>
+        <Popup trigger={showPopup} changeState={changeTrigger}></Popup>
       </div>
       <div className="p-8 flex justify-between flex-1">
         {list?.map((grp, grpI) => (
