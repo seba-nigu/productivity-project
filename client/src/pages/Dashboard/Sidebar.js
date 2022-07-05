@@ -4,10 +4,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   let navigate = useNavigate();
   return (
-    <div className={`${open ? "w-72" : "w-16"} bg-blue-900 relative`}>
+    <div className={`${open ? "w-72" : "w-16"} bg-blue-700 relative`}>
       <img
         src={control}
         alt="close"
@@ -19,7 +19,7 @@ function Sidebar() {
       <ul>
         <li
           onClick={() => navigate("/dashboard")}
-          className="hover:bg-blue-800"
+          className="hover:bg-blue-900"
         >
           <div
             className={`${
@@ -34,7 +34,7 @@ function Sidebar() {
         </li>
         <li
           onClick={() => navigate("/dashboard/jira")}
-          className="hover:bg-blue-800"
+          className="hover:bg-blue-900"
         >
           <div
             className={`${
@@ -49,7 +49,7 @@ function Sidebar() {
         </li>
         <li
           onClick={() => navigate("/dashboard/calendar")}
-          className="hover:bg-blue-800"
+          className="hover:bg-blue-900"
         >
           <div
             className={`${
@@ -64,7 +64,7 @@ function Sidebar() {
         </li>
         <li
           onClick={() => navigate("/dashboard/settings")}
-          className="hover:bg-blue-800"
+          className="hover:bg-blue-900"
         >
           <div
             className={`${
