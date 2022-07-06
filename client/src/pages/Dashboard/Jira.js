@@ -7,6 +7,8 @@ function Jira() {
   const [onDragItem, setOnDragItem] = useState(false);
   const [posOfItem, setPosOfItem] = useState();
   const [showPopup, setShowPopup] = useState(false);
+  let today = new Date().toISOString().slice(0, 10);
+  const [taskDate, setTaskDate] = useState(today);
 
   useEffect(() => {
     if (localStorage.getItem("user"))
@@ -78,6 +80,14 @@ function Jira() {
           Create task
         </div>
         <Popup trigger={showPopup} changeState={changeTrigger}></Popup>
+        <input
+          onChange={(e) => {
+            setTaskDate(e.target.value);
+            window.location("/dashboard/jira");
+          }}
+          type="date"
+          className="py-1 px-2 rounded bg-gray-100 border hover:bg-gray-200 focus:outline-blue-400 focus:bg-white"
+        />
       </div>
       <div className="p-8 flex justify-between flex-1">
         {list?.map((grp, grpI) => (
@@ -90,23 +100,27 @@ function Jira() {
               <div className="dnd-title text-gray-400 font-semibold">
                 {grp.title} <span>{grp.items.length}</span>
               </div>
-              {grp.items.map((item) => (
-                <div
-                  key={item.taskId}
-                  draggable
-                  onDragEnd={handleDragEnd}
-                  onDragStart={(e) => handleDragStart(e, item.taskId)}
-                  className={
-                    !onDragItem
-                      ? "dnd-item bg-white p-5 m-2"
-                      : item.taskId === posOfItem
-                      ? "dnd-item bg-gray-400 p-5 m-2"
-                      : "dnd-item bg-white p-5 m-2"
-                  }
-                >
-                  <div className="dnd-text font-roboto">{item.text}</div>
-                </div>
-              ))}
+              {grp.items.map((item) =>
+                item.date && item.date.substring(0, 10) === taskDate ? (
+                  <div
+                    key={item.taskId}
+                    draggable
+                    onDragEnd={handleDragEnd}
+                    onDragStart={(e) => handleDragStart(e, item.taskId)}
+                    className={
+                      !onDragItem
+                        ? "dnd-item bg-white p-5 m-2"
+                        : item.taskId === posOfItem
+                        ? "dnd-item bg-gray-400 p-5 m-2"
+                        : "dnd-item bg-white p-5 m-2"
+                    }
+                  >
+                    <div className="dnd-text font-roboto">{item.text}</div>
+                  </div>
+                ) : (
+                  ""
+                )
+              )}
             </div>
           </div>
         ))}

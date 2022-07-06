@@ -19,6 +19,7 @@ const getTasks = async (req, res) => {
     taskArray[categories[cat]].items.push({
       taskId: obj.taskId,
       text: obj.innerText,
+      date: obj.date,
     });
   });
   res.status(200).json(taskArray);
