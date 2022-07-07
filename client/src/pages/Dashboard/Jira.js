@@ -98,7 +98,8 @@ function Jira() {
               className="dnd-group bg-gray-100 w-72 p-4 min-h-[15rem] rounded"
             >
               <div className="dnd-title text-gray-400 font-semibold">
-                {grp.title} <span>{grp.items.length}</span>
+                {grp.title}
+                {/* <span>{grp.items.length}</span> */}
               </div>
               {grp.items.map((item) =>
                 item.date && item.date.substring(0, 10) === taskDate ? (
